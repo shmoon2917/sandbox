@@ -8,7 +8,7 @@
 
     "removeComments": true,
     "noImplicitAny": false,
-    "strictNullChecks": true,
+    // "strictNullChecks": true,
     "noUnusedLocals": true, //쓰지않는 지역변수 있으면 에러내기
     "noUnusedParameters": true, //쓰지않는 파라미터 있으면 에러내기
     "noFallthroughCasesInSwitch": true,

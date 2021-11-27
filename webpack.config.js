@@ -55,11 +55,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/,
-          use: [
-            isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
+          use: [isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
       ],
     },
@@ -75,9 +71,10 @@ module.exports = (env, argv) => {
     ],
     devServer: {
       host: 'localhost',
-      port: port,
+      port,
       open: true,
       hot: true,
+      historyApiFallback: true,
     },
   };
 };

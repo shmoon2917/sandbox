@@ -6,6 +6,7 @@
   },
   "extends": [
     "eslint:recommended",
+    "prettier",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -30,6 +31,7 @@
   },
   "ignorePatterns": "node_modules",
   "rules": {
+    "prettier/prettier": "error",
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/no-autofocus": "off",
     "no-unused-vars": [
@@ -38,5 +40,6 @@
         "varsIgnorePattern": "_"
       }
     ]
-  }
+  },
+  "plugins": ["prettier',"]
 }
