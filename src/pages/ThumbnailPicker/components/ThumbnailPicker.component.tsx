@@ -1,14 +1,14 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Styles } from '@src/services/constants';
+import React, { memo, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { STYLES } from '@src/services/constants';
 import styled, { css, keyframes } from 'styled-components';
-import { DEFAULT_THUMBNAIL_COUNT } from '../ThumbnailPicker.constants';
+import { DEFAULT_THUMBNAIL_COUNT, STYLES as LOCAL_STYLES } from '../ThumbnailPicker.constants';
 
 interface Props {
   playtime: number;
   videoUrl: string;
 }
 
-export const ThumbnailPicker: React.FC<Props> = ({ playtime, videoUrl }) => {
+export const ThumbnailPicker: React.FC<Props> = memo(({ playtime, videoUrl }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const hiddenVideoRef = useRef<HTMLVideoElement>(null);
   const hiddenVideoSourceRef = useRef<HTMLSourceElement>(null);
@@ -21,7 +21,7 @@ export const ThumbnailPicker: React.FC<Props> = ({ playtime, videoUrl }) => {
 
   // 비디오 로드 완료 시 thumbnail 추출 콜백 등록
   useEffect(() => {
-    const hiddenVideoElement = hiddenVideoSourceRef.current.parentElement as HTMLVideoElement;
+    const hiddenVideoElement = hiddenVideoRef.current;
 
     hiddenVideoElement.onloadeddata = async () => {
       const durationPerCut = hiddenVideoElement.duration / (DEFAULT_THUMBNAIL_COUNT - 1);
@@ -51,13 +51,14 @@ export const ThumbnailPicker: React.FC<Props> = ({ playtime, videoUrl }) => {
   // video와 canvas width 설정
   useLayoutEffect(() => {
     if (wrapperRef.current && canvasRefs.every((ref) => !!ref.current)) {
-      const wrapperWidth = wrapperRef?.current?.getBoundingClientRect().width;
+      const wrapperWidth = wrapperRef.current.getBoundingClientRect().width;
       const getHeightByRatio = (width: number) => width * (9 / 16);
 
       videoRef.current.setAttribute('width', `${wrapperWidth}px`);
       videoRef.current.setAttribute('height', `${getHeightByRatio(wrapperWidth)}px`);
 
-      const thumbnailWidth = (wrapperWidth - 2 * (DEFAULT_THUMBNAIL_COUNT - 1)) / DEFAULT_THUMBNAIL_COUNT;
+      const thumbnailWidth =
+        (wrapperWidth - LOCAL_STYLES.thumbnailMargin * (DEFAULT_THUMBNAIL_COUNT - 1)) / DEFAULT_THUMBNAIL_COUNT;
       hiddenVideoRef.current.setAttribute('width', `${thumbnailWidth}px`);
       hiddenVideoRef.current.setAttribute('height', `${getHeightByRatio(thumbnailWidth)}px`);
 
@@ -67,7 +68,7 @@ export const ThumbnailPicker: React.FC<Props> = ({ playtime, videoUrl }) => {
 
         const ctx = ref.current.getContext('2d');
         ctx.rect(0, 0, thumbnailWidth, getHeightByRatio(thumbnailWidth));
-        ctx.fillStyle = Styles.COLOR.GREYSCALE_100;
+        ctx.fillStyle = STYLES.color.greyscale_100;
         ctx.fill();
       });
     }
@@ -107,7 +108,7 @@ export const ThumbnailPicker: React.FC<Props> = ({ playtime, videoUrl }) => {
       </HiddenVideoWrapper>
     </Wrapper>
   );
-};
+});
 
 const Wrapper = styled.div`
   width: 100%;
@@ -117,8 +118,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  ${Styles.FONT.HEADELINE_5};
-  color: ${Styles.COLOR.GREYSCALE_900};
+  ${STYLES.font.headline_5};
+  color: ${STYLES.color.greyscale_900};
   margin: 16px 0;
 `;
 
@@ -140,7 +141,7 @@ const ThumbnailWrapper = styled.div`
   display: flex;
 
   ${Thumbnail} ~ ${Thumbnail} {
-    margin-left: 2px;
+    margin-left: ${LOCAL_STYLES.thumbnailMargin}px;
   }
 `;
 

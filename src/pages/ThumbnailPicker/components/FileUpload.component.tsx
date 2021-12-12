@@ -1,36 +1,43 @@
-import React, { ChangeEventHandler, Dispatch, SetStateAction, useCallback, useRef } from 'react';
+import React, {
+  ChangeEventHandler,
+  Dispatch,
+  memo,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import styled from 'styled-components';
-import { Styles } from '@src/services/constants';
+import { STYLES } from '@src/services/constants';
+import { useCheckUpdate } from '@src/services/hooks';
 
 interface Props {
   setPlaytime: Dispatch<SetStateAction<number>>;
   setVideoUrl: Dispatch<SetStateAction<string>>;
 }
 
-export const FileUpload: React.FC<Props> = ({ setPlaytime, setVideoUrl }) => {
-  const fileInput = useRef<HTMLInputElement>();
+export const FileUpload: React.FC<Props> = memo(({ setPlaytime, setVideoUrl }) => {
+  const fileInput = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoSourceRef = useRef<HTMLSourceElement>(null);
 
-  const createThumbnails: ChangeEventHandler<HTMLInputElement> = useCallback(
-    (event) => {
-      const {
-        target: { files },
-      } = event;
-      if (!files?.length) return;
+  const createThumbnails: ChangeEventHandler<HTMLInputElement> = useCallback((event) => {
+    const {
+      target: { files },
+    } = event;
+    if (!files?.length) return;
 
-      videoSourceRef.current.src = URL.createObjectURL(files[0]);
-      setVideoUrl(videoSourceRef.current.src);
-      const videoElement = videoSourceRef.current.parentElement as HTMLVideoElement;
+    videoSourceRef.current.src = URL.createObjectURL(files[0]);
+    setVideoUrl(videoSourceRef.current.src);
+    const videoElement = videoSourceRef.current.parentElement as HTMLVideoElement;
 
-      videoElement.onloadeddata = () => {
-        setPlaytime(videoElement.duration);
-      };
+    videoElement.onloadeddata = () => {
+      setPlaytime(videoElement.duration);
+    };
 
-      videoElement.load();
-    },
-    [videoSourceRef.current],
-  );
+    videoElement.load();
+  }, []);
 
   return (
     <Wrapper>
@@ -55,7 +62,7 @@ export const FileUpload: React.FC<Props> = ({ setPlaytime, setVideoUrl }) => {
       </HiddenVideoWrapper>
     </Wrapper>
   );
-};
+});
 
 const Wrapper = styled.div`
   width: 100%;
@@ -65,8 +72,8 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  ${Styles.FONT.HEADELINE_5};
-  color: ${Styles.COLOR.GREYSCALE_900};
+  ${STYLES.font.headline_5};
+  color: ${STYLES.color.greyscale_900};
   margin: 16px 0;
 `;
 
@@ -74,7 +81,7 @@ const UploadInputWrapper = styled.div`
   width: 100%;
   margin-top: 32px;
   padding: 44px 53px 28px;
-  border: 1px solid ${Styles.COLOR.GREYSCALE_100};
+  border: 1px solid ${STYLES.color.greyscale_100};
 
   display: flex;
   flex-direction: column;
@@ -83,15 +90,15 @@ const UploadInputWrapper = styled.div`
 
 const UploadInputLabel = styled.label`
   padding: 16px;
-  ${Styles.FONT.BUTTON_1};
-  color: ${Styles.COLOR.WHITE};
-  background-color: ${Styles.COLOR.PRIMARY_400};
+  ${STYLES.font.button_1};
+  color: ${STYLES.color.white};
+  background-color: ${STYLES.color.primary_400};
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
 
   &:hover {
-    background-color: ${Styles.COLOR.PRIMARY_500};
+    background-color: ${STYLES.color.primary_500};
   }
 `;
 
@@ -101,8 +108,8 @@ const HiddenInput = styled.input`
 
 const UploadInputDescription = styled.span`
   margin-top: 8px;
-  ${Styles.FONT.BUTTON_3};
-  color: ${Styles.COLOR.GREYSCALE_400};
+  ${STYLES.font.button_3};
+  color: ${STYLES.color.greyscale_400};
 `;
 
 const HiddenVideoWrapper = styled.div`

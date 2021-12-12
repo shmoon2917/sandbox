@@ -1,109 +1,109 @@
-export const Styles = {
-  FONT: {
-    HEADELINE_1: {
+export const STYLES = {
+  font: {
+    headline_1: {
       'font-family': 'Noto Sans KR',
       'font-size': '46px',
       'font-weight': '700',
       'line-height': '64px',
       'letter-spacing': '-0.4px',
     },
-    HEADELINE_2: {
+    headline_2: {
       'font-family': 'Noto Sans KR',
       'font-size': '42px',
       'font-weight': '700',
       'line-height': '60px',
       'letter-spacing': '-0.4px',
     },
-    HEADELINE_3: {
+    headline_3: {
       'font-family': 'Noto Sans KR',
       'font-size': '34px',
       'font-weight': '700',
       'line-height': '52px',
       'letter-spacing': '-0.4px',
     },
-    HEADELINE_4: {
+    headline_4: {
       'font-family': 'Noto Sans KR',
       'font-size': '28px',
       'font-weight': '700',
       'line-height': '40px',
       'letter-spacing': '-0.4px',
     },
-    HEADELINE_5: {
+    headline_5: {
       'font-family': 'Noto Sans KR',
       'font-size': '24px',
       'font-weight': '700',
       'line-height': '34px',
       'letter-spacing': '-0.4px',
     },
-    SUBTITLE_1: {
+    subtitle_1: {
       'font-family': 'Noto Sans KR',
       'font-size': '16px',
       'font-weight': '700',
       'line-height': '24px',
       'letter-spacing': '-0.2px',
     },
-    SUBTITLE_2: {
+    subtitle_2: {
       'font-family': 'Noto Sans KR',
       'font-size': '14px',
       'font-weight': '700',
       'line-height': '22px',
       'letter-spacing': '-0.2px',
     },
-    BODY_1: {
+    body_1: {
       'font-family': 'Noto Sans KR',
       'font-size': '16px',
       'font-weight': '400',
       'line-height': '24px',
       'letter-spacing': '-0.4px',
     },
-    BODY_2: {
+    body_2: {
       'font-family': 'Noto Sans KR',
       'font-size': '15px',
       'font-weight': '400',
       'line-height': '23px',
       'letter-spacing': '-0.4px',
     },
-    BUTTON_1: {
+    button_1: {
       'font-family': 'Noto Sans KR',
       'font-size': '16px',
       'font-weight': '500',
       'line-height': '24px',
     },
-    BUTTON_2: {
+    button_2: {
       'font-family': 'Noto Sans KR',
       'font-size': '14px',
       'font-weight': '500',
       'line-height': '22px',
     },
   },
-  COLOR: {
-    PRIMARY_500: '#0f90e9',
-    PRIMARY_400: '#269beb',
-    PRIMARY_300: '#3ea6ed',
-    PRIMARY_200: '#57b1ef',
-    PRIMARY_100: '#6fbcf1',
-    PRIMARY_50: '#87c7f4',
+  color: {
+    primary_500: '#0f90e9',
+    primary_400: '#269beb',
+    primary_300: '#3ea6ed',
+    primary_200: '#57b1ef',
+    primary_100: '#6fbcf1',
+    primary_50: '#87c7f4',
 
-    SECONDARY_500: '#28c596',
-    SECONDARY_400: '#3dd7a9',
-    SECONDARY_300: '#52edbf',
-    SECONDARY_200: '#67fdd0',
-    SECONDARY_100: '#beffee',
-    SECONDARY_50: '#edfffa',
+    secondary_500: '#28c596',
+    secondary_400: '#3dd7a9',
+    secondary_300: '#52edbf',
+    secondary_200: '#67fdd0',
+    secondary_100: '#beffee',
+    secondary_50: '#edfffa',
 
-    GREYSCALE_950: '#0d0d0d',
-    GREYSCALE_900: '#1a1a1a',
-    GREYSCALE_800: '#333333',
-    GREYSCALE_700: '#4d4d4d',
-    GREYSCALE_600: '#666666',
-    GREYSCALE_500: '#808080',
-    GREYSCALE_400: '#999999',
-    GREYSCALE_300: '#b3b3b3',
-    GREYSCALE_200: '#cccccc',
-    GREYSCALE_100: '#e5e5e5',
-    GREYSCALE_50: '#f2f2f2',
-    GREYSCALE_25: '#f9f9f9',
+    greyscale_950: '#0d0d0d',
+    greyscale_900: '#1a1a1a',
+    greyscale_800: '#333333',
+    greyscale_700: '#4d4d4d',
+    greyscale_600: '#666666',
+    greyscale_500: '#808080',
+    greyscale_400: '#999999',
+    greyscale_300: '#b3b3b3',
+    greyscale_200: '#cccccc',
+    greyscale_100: '#e5e5e5',
+    greyscale_50: '#f2f2f2',
+    greyscale_25: '#f9f9f9',
 
-    WHITE: '#FAFAFA',
+    white: '#FAFAFA',
   },
 };
