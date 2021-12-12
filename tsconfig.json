@@ -16,6 +16,7 @@
     // "strictFunctionTypes": true, // 함수 파라미터 타입체크 엄격하게
     // "strictPropertyInitialization": true, // class constructor 작성시 타입체크 강하게
     // "noImplicitThis": true, // this 키워드가 any 타입일 경우 에러내기
+    "downlevelIteration": true,
 
     "moduleResolution": "node",
     "isolatedModules": true,

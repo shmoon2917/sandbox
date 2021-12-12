@@ -1,0 +1,1 @@
+export const DEFAULT_THUMBNAIL_COUNT = 6;
