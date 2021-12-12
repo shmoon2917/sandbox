@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
+window.app2Url = 'http://localhost:3001';
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
