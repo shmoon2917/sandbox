@@ -8,13 +8,13 @@ const RemoteApp = React.lazy(() => import('app2/App'));
 const App: React.FC = (): JSX.Element => {
   return (
     <>
+      <Suspense fallback={'loading...'}>
+        <RemoteApp />
+      </Suspense>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<ThumbnailPickerPage />} />
       </Routes>
-      <Suspense fallback={'loading...'}>
-        <RemoteApp />
-      </Suspense>
     </>
   );
 };

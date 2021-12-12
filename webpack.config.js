@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
 
   return {
     mode: 'development',
-    entry: './src/index.tsx',
+    entry: './src/index.ts',
     output: {
       filename: 'bundle.[hash].js',
     },
