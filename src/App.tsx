@@ -1,12 +1,16 @@
-import { ThumbnailPickerPage } from 'pages/ThumbnailPicker/ThumbnailPicker.page';
+import { ThumbnailPickerPage } from '@src/pages/ThumbnailPicker/ThumbnailPicker.page';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './GlobalStyles.styles';
 
 const App: React.FC = (): JSX.Element => {
   return (
-    <Routes>
-      <Route path="/" element={<ThumbnailPickerPage />} />
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<ThumbnailPickerPage />} />
+      </Routes>
+    </>
   );
 };
 

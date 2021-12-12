@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler, Dispatch, SetStateAction, useCallback, useRef } from 'react';
 import styled from 'styled-components';
-import { Styles } from 'services/constants';
+import { Styles } from '@src/services/constants';
 
 interface Props {
   setPlaytime: Dispatch<SetStateAction<number>>;
@@ -84,7 +84,7 @@ const UploadInputWrapper = styled.div`
 const UploadInputLabel = styled.label`
   padding: 16px;
   ${Styles.FONT.BUTTON_1};
-  color: 'white';
+  color: ${Styles.COLOR.WHITE};
   background-color: ${Styles.COLOR.PRIMARY_400};
   border-radius: 4px;
   text-align: center;

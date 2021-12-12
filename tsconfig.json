@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
     "lib": ["es5", "es2015", "es2016", "es2017", "DOM", "esnext"],
     // "lib": ["dom", "dom.iterable", "esnext"],
 

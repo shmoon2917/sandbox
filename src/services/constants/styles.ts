@@ -77,12 +77,12 @@ export const Styles = {
     },
   },
   COLOR: {
-    PRIMARY_500: '#4c3cf6',
-    PRIMARY_400: '#6143ff',
-    PRIMARY_300: '#8572ff',
-    PRIMARY_200: '#aa9fff',
-    PRIMARY_100: '#ded9ff',
-    PRIMARY_50: '#f4f2ff',
+    PRIMARY_500: '#0f90e9',
+    PRIMARY_400: '#269beb',
+    PRIMARY_300: '#3ea6ed',
+    PRIMARY_200: '#57b1ef',
+    PRIMARY_100: '#6fbcf1',
+    PRIMARY_50: '#87c7f4',
 
     SECONDARY_500: '#28c596',
     SECONDARY_400: '#3dd7a9',
@@ -103,5 +103,7 @@ export const Styles = {
     GREYSCALE_100: '#e5e5e5',
     GREYSCALE_50: '#f2f2f2',
     GREYSCALE_25: '#f9f9f9',
+
+    WHITE: '#FAFAFA',
   },
 };

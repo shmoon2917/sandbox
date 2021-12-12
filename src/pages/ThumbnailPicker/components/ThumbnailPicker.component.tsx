@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Styles } from 'services/constants';
+import { Styles } from '@src/services/constants';
 import styled, { css, keyframes } from 'styled-components';
 import { DEFAULT_THUMBNAIL_COUNT } from '../ThumbnailPicker.constants';
 
