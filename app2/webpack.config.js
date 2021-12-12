@@ -6,6 +6,9 @@ module.exports = {
   entry: './src/index.js',
   mode: 'development',
   devServer: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
     static: path.join(__dirname, 'dist'),
     port: 3001,
   },
